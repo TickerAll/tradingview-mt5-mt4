@@ -33,9 +33,11 @@ plot(fast, "Fast EMA", color.new(color.aqua, 0))
 plot(slow, "Slow EMA", color.new(color.orange, 0))
 
 // ── Build the webhook JSON ──
-secretPart(bool on, string s) => on and s != "" ? ',"secret":"' + s + '"' : ""
-buyMsg  = '{"action":"buy","symbol":"'  + symbol + '","volume":' + str.tostring(lots) + secretPart(useSecret, secret) + '}'
-sellMsg = '{"action":"sell","symbol":"' + symbol + '","volume":' + str.tostring(lots) + secretPart(useSecret, secret) + '}'
+// secretPart is empty unless you turn on "Send a secret" — then it appends
+// ,"secret":"…" to the payload (for webhooks that require a secret).
+secretPart = useSecret and secret != "" ? ',"secret":"' + secret + '"' : ""
+buyMsg  = '{"action":"buy","symbol":"'  + symbol + '","volume":' + str.tostring(lots) + secretPart + '}'
+sellMsg = '{"action":"sell","symbol":"' + symbol + '","volume":' + str.tostring(lots) + secretPart + '}'
 
 // ── Fire ──
 if goLong

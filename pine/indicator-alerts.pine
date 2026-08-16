@@ -34,9 +34,11 @@ plotshape(goLong,  "Long",  shape.triangleup,   location.belowbar, color.new(col
 plotshape(goShort, "Short", shape.triangledown, location.abovebar, color.new(color.red, 0),   size = size.tiny)
 
 // ── Build the webhook JSON ──
-secretPart(bool on, string s) => on and s != "" ? ',"secret":"' + s + '"' : ""
-buyMsg  = '{"action":"buy","symbol":"'  + symbol + '","volume":' + str.tostring(lots) + secretPart(useSecret, secret) + '}'
-sellMsg = '{"action":"sell","symbol":"' + symbol + '","volume":' + str.tostring(lots) + secretPart(useSecret, secret) + '}'
+// secretPart is empty unless you turn on "Send a secret" — then it appends
+// ,"secret":"…" to the payload (for webhooks that require a secret).
+secretPart = useSecret and secret != "" ? ',"secret":"' + secret + '"' : ""
+buyMsg  = '{"action":"buy","symbol":"'  + symbol + '","volume":' + str.tostring(lots) + secretPart + '}'
+sellMsg = '{"action":"sell","symbol":"' + symbol + '","volume":' + str.tostring(lots) + secretPart + '}'
 
 // ── Fire ──
 if goLong
