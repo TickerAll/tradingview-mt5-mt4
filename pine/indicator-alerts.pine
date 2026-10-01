@@ -1,6 +1,6 @@
 //@version=5
 // ─────────────────────────────────────────────────────────────────────────────
-// TickerAll — TradingView → MT4/MT5 alert bridge (INDICATOR template)
+// TickerAll — TradingView → MT5 alert bridge (INDICATOR template)
 //
 // Same idea as the strategy template, as a study. Use this when you want an alert
 // off an indicator condition rather than a backtestable strategy.

@@ -1,6 +1,6 @@
-# TradingView → MT4 / MT5 (via TickerAll)
+# TradingView → MT5 (via TickerAll)
 
-Turn a **TradingView alert** into a **live trade** on your MetaTrader 4 or 5 broker
+Turn a **TradingView alert** into a **live trade** on your MetaTrader 5 broker
 account — no VPS, no Expert Advisor, no MetaTrader terminal left running.
 
 [TickerAll](https://tickerall.com) keeps a live connection to your broker. When your
@@ -8,8 +8,12 @@ TradingView alert fires, it POSTs to a private webhook URL; TickerAll places the
 on your account. That's the whole loop.
 
 ```
-TradingView alert  ──POST──▶  your TickerAll webhook  ──▶  order on your MT4/MT5 account
+TradingView alert  ──POST──▶  your TickerAll webhook  ──▶  order on your MT5 account
 ```
+
+> **MetaTrader 4 is not supported yet.** Everything in this repo targets **MT5**. MT4 is
+> still in development and is not ready to trade on, so please don't build against it
+> expecting it to work today. This note will go when it does.
 
 This repo is the **companion guide**: ready-to-use alert payloads, Pine Script
 templates, and a full field reference. You don't install anything from here — you paste
@@ -27,7 +31,7 @@ TickerAll is the hosted piece in the middle. Your account stays connected on our
 so an alert can trade the moment it fires — even with your laptop closed.
 
 - **No terminal, no EA, no VPS.** Nothing to install or keep running.
-- **MT4 and MT5.** Same webhook, same payloads.
+- **MT5, with any broker.** One webhook and one payload format across every MT5 server.
 - **Full order control.** Market & pending entries, stop-loss / take-profit, close,
   close-all, modify.
 - **Demo or live.** Point an alert at a demo account to paper-trade a strategy, or a
@@ -38,7 +42,7 @@ so an alert can trade the moment it fires — even with your laptop closed.
 ## Quickstart (~5 minutes)
 
 1. **Create a TickerAll account** at **[tickerall.com](https://tickerall.com)** and
-   connect your MT4/MT5 broker account (server, login, password — the password is held
+   connect your MT5 broker account (server, login, password — the password is held
    only while connected, never stored).
 2. **Make the account always-hot** (a Pro feature). A TradingView alert carries no
    broker password, so the account has to be *already connected* when the alert fires —

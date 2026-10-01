@@ -1,6 +1,6 @@
 //@version=5
 // ─────────────────────────────────────────────────────────────────────────────
-// TickerAll — TradingView → MT4/MT5 alert bridge (STRATEGY template)
+// TickerAll — TradingView → MT5 alert bridge (STRATEGY template)
 //
 // A minimal EMA-cross strategy that emits TickerAll webhook JSON on each signal.
 // Replace the signal logic with your own — only the alert() calls matter for the
