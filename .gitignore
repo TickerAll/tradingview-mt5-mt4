@@ -1,3 +1,10 @@
-# Nothing to build here — this is a docs + templates repo.
+# This repo is mostly docs + templates; the integrations/ examples are runnable.
 .DS_Store
 *.log
+
+# Never commit a filled-in .env — the examples ship .env.example instead.
+.env
+.env.*
+!.env.example
+
+node_modules/

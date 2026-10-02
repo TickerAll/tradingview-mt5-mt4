@@ -134,6 +134,23 @@ Now a leaked URL alone can't place a trade.
 
 ---
 
+## Integrations — beyond what an alert can say
+
+An alert payload carries a fixed `volume` and no idea what happens after the
+fill. [`integrations/`](./integrations) holds small runnable services for the
+things that needs:
+
+- **[risk-based-sizing](./integrations/risk-based-sizing)** — size each trade
+  from your balance, risk percentage and stop distance, so a 10-point stop and a
+  200-point stop cost you the same money.
+- **[partial-tp-breakeven](./integrations/partial-tp-breakeven)** — once a
+  position makes a multiple of what it risked, take part of it off and pull the
+  stop to break-even.
+
+Both are MIT, demo by default, and run on their own next to your alerts.
+
+---
+
 ## Links
 
 - **TickerAll** — [tickerall.com](https://tickerall.com)
