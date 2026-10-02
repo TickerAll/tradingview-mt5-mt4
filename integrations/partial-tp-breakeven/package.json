@@ -1,0 +1,21 @@
+{
+  "name": "tickerall-partial-tp-breakeven",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Take partial profit and move the stop to break-even once a position reaches a multiple of its risk.",
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "test": "tsx --test test/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@tickerall/sdk": "^0.9.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  }
+}
